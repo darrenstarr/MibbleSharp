@@ -1,0 +1,3 @@
+[submodule "Grammatica"]
+	path = Grammatica
+	url = https://github.com/darrenstarr/grammatica.git
