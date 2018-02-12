@@ -444,7 +444,7 @@ namespace MibbleSharp
             if (this.currentMib.GetSymbol(name) != null)
             {
                 throw new ParseException(
-                    ParseException.ErrorType.Analysis,
+                    ParseException.ErrorType.ANALYSIS,
                     "a symbol '" + name + "' already present in the MIB",
                     node.StartLine,
                     node.StartColumn);
@@ -487,7 +487,7 @@ namespace MibbleSharp
             if (this.currentMib.GetSymbol(name) != null)
             {
                 throw new ParseException(
-                    ParseException.ErrorType.Analysis,
+                    ParseException.ErrorType.ANALYSIS,
                     "a symbol '" + name + "' already present in the MIB",
                     node.StartLine,
                     node.StartColumn);
@@ -506,7 +506,7 @@ namespace MibbleSharp
             if (type == null)
             {
                 throw new ParseException(
-                    ParseException.ErrorType.Analysis,
+                    ParseException.ErrorType.ANALYSIS,
                     "Expecting MibType",
                     node.StartLine,
                     node.StartColumn);
@@ -552,7 +552,7 @@ namespace MibbleSharp
                         if (local == null)
                         {
                             throw new ParseException(
-                                ParseException.ErrorType.Analysis,
+                                ParseException.ErrorType.ANALYSIS,
                                 "referenced module not imported '" + name + "'",
                                 child.StartLine,
                                 child.StartColumn);
@@ -746,19 +746,19 @@ namespace MibbleSharp
             IConstraint c = null;
             Node child;
 
-            child = this.GetChildAt(node, node.ChildCount - 1);
+            child = this.GetChildAt(node, node.GetChildCount() - 1);
             type = this.GetValue(child, 0) as MibType;
 
             if (type == null)
             {
                 throw new ParseException(
-                    ParseException.ErrorType.Analysis, 
+                    ParseException.ErrorType.ANALYSIS, 
                     "Expecting MibType", 
                     node.StartLine, 
                     node.StartColumn);
             }
 
-            if (node.ChildCount == 4)
+            if (node.GetChildCount() == 4)
             {
                 child = this.GetChildAt(node, 1);
                 c = this.GetValue(child, 0) as IConstraint;
@@ -766,7 +766,7 @@ namespace MibbleSharp
                 if (c == null)
                 {
                     throw new ParseException(
-                        ParseException.ErrorType.Analysis,
+                        ParseException.ErrorType.ANALYSIS,
                         "Expecting constraint",
                         child.StartLine,
                         child.StartColumn);
@@ -873,7 +873,7 @@ namespace MibbleSharp
                 implicitly = (bool)this.GetValue(child, 0);
             }
 
-            child = this.GetChildAt(node, node.ChildCount - 1);
+            child = this.GetChildAt(node, node.GetChildCount() - 1);
             type = (MibType)this.GetValue(child, 0);
             type.SetTag(implicitly, tag);
             node.Values.Add(type);
@@ -1001,7 +1001,7 @@ namespace MibbleSharp
             if (child.Id != (int)Asn1Constants.TYPE)
             {
                 throw new ParseException(
-                    ParseException.ErrorType.Analysis,
+                    ParseException.ErrorType.ANALYSIS,
                     "referencing components is currently unsupported",
                     child.StartLine,
                     child.StartColumn);
@@ -1154,7 +1154,7 @@ namespace MibbleSharp
             if (list.Count == 0)
             {
                 throw new ParseException(
-                    ParseException.ErrorType.Analysis,
+                    ParseException.ErrorType.ANALYSIS,
                     "no value specified in constraint",
                     node.StartLine,
                     node.StartColumn);
@@ -1222,7 +1222,7 @@ namespace MibbleSharp
             }
 
             // Add upper end point (or null)
-            child = this.GetChildAt(node, node.ChildCount - 1);
+            child = this.GetChildAt(node, node.GetChildCount() - 1);
             if(child.Values.Count == 0)
             {
                 node.Values.Add(null);
@@ -1234,7 +1234,7 @@ namespace MibbleSharp
             
 
             // Check for strict upper end point
-            child = this.GetChildAt(node, node.ChildCount - 2);
+            child = this.GetChildAt(node, node.GetChildCount() - 2);
             if (child.Id == (int)Asn1Constants.LESS_THAN)
             {
                 node.Values.Add(true);
@@ -1350,7 +1350,7 @@ namespace MibbleSharp
             if (this.currentMib.GetSymbol(name) != null)
             {
                 throw new ParseException(
-                    ParseException.ErrorType.Analysis,
+                    ParseException.ErrorType.ANALYSIS,
                     "a symbol '" + name + "' already present in the MIB",
                     node.StartLine,
                     node.StartColumn);
@@ -1408,7 +1408,7 @@ namespace MibbleSharp
                 if (local == null)
                 {
                     throw new ParseException(
-                        ParseException.ErrorType.Analysis,
+                        ParseException.ErrorType.ANALYSIS,
                         "referenced module not imported '" + name + "'",
                         child.StartLine,
                         child.StartColumn);
@@ -1585,7 +1585,7 @@ namespace MibbleSharp
                 if(number == null)
                 {
                     throw new ParseException(
-                        ParseException.ErrorType.UnexpectedToken, 
+                        ParseException.ErrorType.UNEXPECTED_TOKEN, 
                         "Expecting NamedNumber", 
                         node.StartLine, 
                         node.StartColumn);
@@ -1620,7 +1620,7 @@ namespace MibbleSharp
             if (components.Count < 1)
             {
                 throw new ParseException(
-                    ParseException.ErrorType.Analysis,
+                    ParseException.ErrorType.ANALYSIS,
                     "object identifier must contain at least one component",
                     node.StartLine,
                     node.StartColumn);
@@ -1685,7 +1685,7 @@ namespace MibbleSharp
                         "' has been previously defined, remove any " +
                         "components to the left";
                     throw new ParseException(
-                        ParseException.ErrorType.Analysis,
+                        ParseException.ErrorType.ANALYSIS,
                         error,
                         node.StartLine,
                         node.StartColumn);
@@ -1811,7 +1811,7 @@ namespace MibbleSharp
             org = this.GetStringValue(this.GetChildAt(node, 2), 0);
             contact = this.GetStringValue(this.GetChildAt(node, 3), 0);
             desc = this.GetStringValue(this.GetChildAt(node, 4), 0);
-            for (int i = 5; i < node.ChildCount; i++)
+            for (int i = 5; i < node.GetChildCount(); i++)
             {
                 revisions.Add(this.GetValue(this.GetChildAt(node, i), 0));
             }
@@ -1839,7 +1839,7 @@ namespace MibbleSharp
             this.currentMib.SmiVersion = 2;
             status = (SnmpStatus)this.GetValue(this.GetChildAt(node, 1), 0);
             desc = this.GetStringValue(this.GetChildAt(node, 2), 0);
-            if (node.ChildCount <= 3)
+            if (node.GetChildCount() <= 3)
             {
                 sref = null;
             }
@@ -2093,7 +2093,7 @@ namespace MibbleSharp
             status = (SnmpStatus)this.GetValue(this.GetChildAt(node, 2), 0);
             desc = this.GetStringValue(this.GetChildAt(node, 3), 0);
 
-            if (node.ChildCount <= 4)
+            if (node.GetChildCount() <= 4)
             {
                 sref = null;
             }
@@ -2126,7 +2126,7 @@ namespace MibbleSharp
             notifications = this.GetChildAt(node, 1).Values;
             status = (SnmpStatus)this.GetValue(this.GetChildAt(node, 2), 0);
             desc = this.GetStringValue(this.GetChildAt(node, 3), 0);
-            if (node.ChildCount <= 4)
+            if (node.GetChildCount() <= 4)
             {
                 sref = null;
             }
@@ -2318,7 +2318,7 @@ namespace MibbleSharp
             {
                 node.Values.Add(SnmpStatus.CURRENT);
                 throw new ParseException(
-                    ParseException.ErrorType.Analysis,
+                    ParseException.ErrorType.ANALYSIS,
                     "unrecognized status value: '" + name + "'",
                     child.StartLine,
                     child.StartColumn);
@@ -2403,7 +2403,7 @@ namespace MibbleSharp
             {
                 node.Values.Add(SnmpAccess.ReadWrite);
                 throw new ParseException(
-                    ParseException.ErrorType.Analysis,
+                    ParseException.ErrorType.ANALYSIS,
                     "unrecognized access value: '" + name + "'",
                     child.StartLine,
                     child.StartColumn);

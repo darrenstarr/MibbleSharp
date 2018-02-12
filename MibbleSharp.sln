@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MibbleSharp", "MibbleSharp\MibbleSharp.csproj", "{0BA94C64-91DA-4501-A795-2E57DCF58B15}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grammatica", "Grammatica\Grammatica.csproj", "{BB0D2058-F6E1-486B-A02D-4A52667121EE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MibbleValidator", "MibbleValidator\MibbleValidator.csproj", "{92BBDED0-17E2-4DC6-8382-68387CAD4327}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MibbleBrowser", "MibbleBrowser\MibbleBrowser.csproj", "{4364D765-1B10-409D-82C7-51C32201D238}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PerCederberg.Grammatica.Runtime", "Grammatica\src\csharp\PerCederberg.Grammatica.Runtime.csproj", "{9EB1F3D7-18D7-4FD1-91EE-F03EE9B33131}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		{0BA94C64-91DA-4501-A795-2E57DCF58B15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BA94C64-91DA-4501-A795-2E57DCF58B15}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BA94C64-91DA-4501-A795-2E57DCF58B15}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BB0D2058-F6E1-486B-A02D-4A52667121EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BB0D2058-F6E1-486B-A02D-4A52667121EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BB0D2058-F6E1-486B-A02D-4A52667121EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BB0D2058-F6E1-486B-A02D-4A52667121EE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{92BBDED0-17E2-4DC6-8382-68387CAD4327}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{92BBDED0-17E2-4DC6-8382-68387CAD4327}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92BBDED0-17E2-4DC6-8382-68387CAD4327}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,8 +29,15 @@ Global
 		{4364D765-1B10-409D-82C7-51C32201D238}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4364D765-1B10-409D-82C7-51C32201D238}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4364D765-1B10-409D-82C7-51C32201D238}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EB1F3D7-18D7-4FD1-91EE-F03EE9B33131}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EB1F3D7-18D7-4FD1-91EE-F03EE9B33131}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EB1F3D7-18D7-4FD1-91EE-F03EE9B33131}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EB1F3D7-18D7-4FD1-91EE-F03EE9B33131}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D6802CD9-A72C-4C8C-8D4D-67E975D477CC}
 	EndGlobalSection
 EndGlobal

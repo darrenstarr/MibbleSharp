@@ -53,13 +53,13 @@ namespace MibbleSharp
                 return true;
             }
             else if (node.Id == (int)Asn1Constants.NAME_VALUE_LIST
-                && node.ChildCount < 4)
+                && node.GetChildCount() < 4)
             {
                 return true;
             }
             else
             {
-                for (int i = 0; i < node.ChildCount; i++)
+                for (int i = 0; i < node.GetChildCount(); i++)
                 {
                     if (IsBitValue(node[i]))
                     {
@@ -319,7 +319,7 @@ namespace MibbleSharp
         {
             while (node is Production)
             {
-                node = node[node.ChildCount - 1];
+                node = node[node.GetChildCount() - 1];
             }
 
             return (Token)node;
