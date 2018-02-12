@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <OutputPath>..\..\..\lib\netcoreapp2.0\</OutputPath>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\MibbleSharp\MibbleSharp.csproj" />
   </ItemGroup>
-
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
 </Project>
