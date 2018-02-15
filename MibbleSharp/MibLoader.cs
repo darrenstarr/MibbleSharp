@@ -811,8 +811,7 @@ namespace MibbleSharp
                     {
                         if (parser == null)
                         {
-                            Asn1Tokenizer tokenizer = new Asn1Tokenizer(this.input);
-                            parser = new Asn1Parser(tokenizer, analyzer);
+                            parser = new Asn1Parser(this.input, analyzer);
                             parser.Tokenizer.UseTokenList = true;
                         }
                         else
